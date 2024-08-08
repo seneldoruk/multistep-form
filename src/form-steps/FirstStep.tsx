@@ -5,9 +5,21 @@ import FormAnimationWrapper from "./FormAnimationWrapper";
 export default function FormFirstStep() {
   return (
     <FormAnimationWrapper>
-      <IconTextInput icon={<NameSVG />} placeholder={"Full Name"} />
-      <IconTextInput icon={<EmailSVG />} placeholder={"Email"} />
-      <IconTextInput icon={<PhoneSVG />} placeholder={"Phone Number"} />
+      <IconTextInput
+        icon={<NameSVG />}
+        placeholder={"Full Name"}
+        registerAs="fullName"
+      />
+      <IconTextInput
+        icon={<EmailSVG />}
+        placeholder={"Email"}
+        registerAs="email"
+      />
+      <IconTextInput
+        icon={<PhoneSVG />}
+        placeholder={"Phone Number"}
+        registerAs="phoneNumber"
+      />
     </FormAnimationWrapper>
   );
 }

@@ -4,11 +4,18 @@ import FormFirstStep from "./form-steps/FirstStep";
 import FormSecondStep from "./form-steps/SecondStep";
 import FormThirdStep from "./form-steps/ThirdStep";
 import FormSubmitted from "./form-steps/FormSubmitted";
+import { FormInput, FormSchema } from "./schema";
+import { FormProvider, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 function App() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setSubmitted] = useState(false);
-  console.log(isSubmitted);
+  const formMethods = useForm<FormInput>({
+    mode: "onTouched",
+    resolver: zodResolver(FormSchema),
+  });
+  console.log(formMethods.watch("fullName"));
 
   return (
     <>
@@ -20,9 +27,13 @@ function App() {
             ) : (
               <>
                 <h2 className="card-title text-3xl mb-8">Register</h2>
-                {step == 1 && <FormFirstStep />}
-                {step == 2 && <FormSecondStep />}
-                {step == 3 && <FormThirdStep setter={setSubmitted} />}
+                <FormProvider {...formMethods}>
+                  <form>
+                    {step == 1 && <FormFirstStep />}
+                    {step == 2 && <FormSecondStep />}
+                    {step == 3 && <FormThirdStep setter={setSubmitted} />}
+                  </form>
+                </FormProvider>
                 <div className="card-actions justify-end">
                   <Pagination
                     activePage={step}
@@ -30,6 +41,11 @@ function App() {
                     setter={setStep}
                   />
                 </div>
+                <progress
+                  className="progress w-56 my-4 [&::-webkit-progress-value]:transition-all"
+                  value={step}
+                  max="3"
+                />
               </>
             )}
           </div>
