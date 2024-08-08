@@ -1,4 +1,3 @@
-import { Dispatch } from "react";
 import IconTextInput from "../components/IconTextInput";
 import {
   EmailSVG,
@@ -11,10 +10,7 @@ import FormAnimationWrapper from "./FormAnimationWrapper";
 import { useFormContext } from "react-hook-form";
 import { FormInput } from "../schema";
 
-type Props = {
-  setter: Dispatch<React.SetStateAction<boolean>>;
-};
-export default function FormThirdStep({ setter }: Props) {
+export default function FormThirdStep() {
   const {
     getValues,
     formState: { isValid },
@@ -36,12 +32,7 @@ export default function FormThirdStep({ setter }: Props) {
         </div>
       )}
       {isValid && (
-        <button
-          className="btn btn-wide btn-primary"
-          onClick={() => {
-            setter(true);
-          }}
-        >
+        <button className="btn btn-wide btn-primary" type="submit">
           Submit!
         </button>
       )}

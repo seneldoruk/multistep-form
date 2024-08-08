@@ -16,6 +16,13 @@ function App() {
     resolver: zodResolver(FormSchema),
   });
 
+  const { handleSubmit, watch } = formMethods;
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+    setSubmitted(true);
+  });
+  console.log(watch(["fullName", "email", "phoneNumber", "salary"]));
+
   return (
     <>
       <div className="h-screen w-full flex items-center justify-center transition ease-in-out">
@@ -27,10 +34,10 @@ function App() {
               <>
                 <h2 className="card-title text-3xl mb-8">Register</h2>
                 <FormProvider {...formMethods}>
-                  <form>
+                  <form onSubmit={onSubmit}>
                     {step == 1 && <FormFirstStep />}
                     {step == 2 && <FormSecondStep />}
-                    {step == 3 && <FormThirdStep setter={setSubmitted} />}
+                    {step == 3 && <FormThirdStep />}
                   </form>
                 </FormProvider>
                 <div className="card-actions justify-end">

@@ -11,7 +11,6 @@ export default function RadioButton({ text }: RadioButtonProps) {
         <input
           type="radio"
           className="radio checked:bg-blue-500"
-          defaultChecked
           value={text}
           {...register("salary")}
         />
