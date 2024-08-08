@@ -11,3 +11,7 @@ You can run the project with `bun dev`, but I assume any other package manager w
 - Framer Motion: Seems to be the default choice for animations. A lot of resources on it.
 
 - React Hook Form: Validations are easy (even easier with Zod) and I don't have to write boilerplate for context (or a state library) since it provides a form context.
+
+## What to improve
+
+- I didn't want to spend too much time on getting the validation rules exactly correct. If I wanted to take this to prod, I would probably define the schema a lot more in detail. Validation logic is already there, just more rules are needed. Possibly a library like libphonenumber could be used.

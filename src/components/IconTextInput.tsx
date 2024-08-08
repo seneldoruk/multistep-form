@@ -14,7 +14,6 @@ export default function IconTextInput({ icon, ...props }: IconTextInputProps) {
   const { register, formState } = useFormContext();
   if ("placeholder" in props) {
     const { placeholder, registerAs } = props;
-    console.log(formState.errors);
     return (
       <>
         <label

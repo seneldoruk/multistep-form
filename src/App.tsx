@@ -15,7 +15,6 @@ function App() {
     mode: "onTouched",
     resolver: zodResolver(FormSchema),
   });
-  console.log(formMethods.watch("fullName"));
 
   return (
     <>
