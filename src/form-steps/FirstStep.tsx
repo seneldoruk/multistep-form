@@ -1,6 +1,12 @@
 import IconTextInput from "../components/IconTextInput";
-import { NameSVG } from "../components/Svgs";
+import { EmailSVG, NameSVG, PhoneSVG } from "../components/Svgs";
 
 export default function FormFirstStep() {
-  return <IconTextInput icon={<NameSVG />} placeholder={"Full Name"} />;
+  return (
+    <>
+      <IconTextInput icon={<NameSVG />} placeholder={"Full Name"} />
+      <IconTextInput icon={<EmailSVG />} placeholder={"Email"} />
+      <IconTextInput icon={<PhoneSVG />} placeholder={"Phone Number"} />
+    </>
+  );
 }
