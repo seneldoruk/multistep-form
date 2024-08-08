@@ -10,12 +10,12 @@ export default function Pagination({
   setter,
 }: PaginationProps) {
   const pagesArray = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const normalStyles = "join-item btn";
+  const disabledStyles = "join-item btn btn-disabled";
   return (
     <div className="join">
       <button
-        className={
-          activePage == 1 ? "join-item btn btn-disabled" : "join-item btn"
-        }
+        className={activePage == 1 ? disabledStyles : normalStyles}
         onClick={() => setter(activePage - 1)}
       >
         «
@@ -25,8 +25,8 @@ export default function Pagination({
         <button
           className={
             pageNumber == activePage
-              ? "join-item btn btn-active"
-              : "join-item btn"
+              ? `${normalStyles} btn-active`
+              : normalStyles
           }
           onClick={() => setter(pageNumber)}
         >
@@ -34,11 +34,7 @@ export default function Pagination({
         </button>
       ))}
       <button
-        className={
-          activePage == totalPages
-            ? "join-item btn btn-disabled"
-            : "join-item btn"
-        }
+        className={activePage == totalPages ? disabledStyles : normalStyles}
         onClick={() => setter(activePage + 1)}
       >
         »

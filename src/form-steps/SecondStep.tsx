@@ -1,13 +1,10 @@
 import { PropsWithChildren } from "react";
 import RadioButton from "../components/RadioButton";
-import { motion } from "framer-motion";
+import FormAnimationWrapper from "./FormAnimationWrapper";
 
 export default function FormSecondStep() {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-    >
+    <FormAnimationWrapper>
       <h3 className="text-xl my-3">What is your monthly salary?</h3>
       <div className="flex flex-row justify-between items-start">
         <RadioButtonContainer>
@@ -20,7 +17,7 @@ export default function FormSecondStep() {
           <RadioButton text={"> 4.000"} />
         </RadioButtonContainer>
       </div>
-    </motion.div>
+    </FormAnimationWrapper>
   );
 }
 

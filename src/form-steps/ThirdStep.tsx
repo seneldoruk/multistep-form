@@ -1,3 +1,5 @@
+import FormAnimationWrapper from "./FormAnimationWrapper";
+
 export default function FormThirdStep() {
-  return <></>;
+  return <FormAnimationWrapper>Third Step</FormAnimationWrapper>;
 }
