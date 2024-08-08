@@ -1,30 +1,13 @@
-# React + TypeScript + Vite
+# Multi-Step Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+You can run the project with `bun dev`, but I assume any other package manager would also be fine except for tests, which require `bun test`
 
-Currently, two official plugins are available:
+## Used Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Bun: Comes with with a fast package manager and a lot of functionalities out of the box, including a test runner compatible with React Testing Library. Wouldn't use it in production yet but it is more than enough for a demo.
 
-## Expanding the ESLint configuration
+- Tailwind and DaisyUI: Choose Tailwind because I saw it in Bueno's stack. DaisyUI is one of the UI libraries built on top of Tailwind.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Framer Motion: Seems to be the default choice for animations. A lot of resources on it.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React Hook Form: Validations are easy (even easier with Zod) and I don't have to write boilerplate for context (or a state library) since it provides a form context.
