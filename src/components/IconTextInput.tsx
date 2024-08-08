@@ -22,7 +22,7 @@ export default function IconTextInput({ icon, ...props }: IconTextInputProps) {
     <>
       <label className="input input-bordered flex items-center gap-2 my-2 input-disabled">
         {icon}
-        <input type="text" className="grow" value={props.value} />
+        <input type="text" className="grow" value={props.value} readOnly />
       </label>
     </>
   );

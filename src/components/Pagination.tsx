@@ -23,6 +23,7 @@ export default function Pagination({
 
       {pagesArray.map((pageNumber) => (
         <button
+          key={pageNumber}
           className={
             pageNumber == activePage
               ? `${normalStyles} btn-active`
