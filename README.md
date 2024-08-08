@@ -19,3 +19,5 @@ You can run the project with `bun dev`, but I assume any other package manager w
 - Useful tests with React Testing Library or maybe Playwright/Cypress could be added to test the whole process.
 
 - State of the steps could be saved on the URL path, if a routing library was available
+
+- Investigage a bug where isValid from hook-form not being rendered correctly and the workaround only works when the fiels are followed with a watch()

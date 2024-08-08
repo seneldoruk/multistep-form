@@ -21,7 +21,7 @@ function App() {
     console.log(data);
     setSubmitted(true);
   });
-  console.log(watch(["fullName", "email", "phoneNumber", "salary"]));
+  watch(["fullName", "email", "phoneNumber", "salary"]);
 
   return (
     <>

@@ -13,16 +13,18 @@ import { FormInput } from "../schema";
 export default function FormThirdStep() {
   const {
     getValues,
-    formState: { isValid },
+    formState: { errors, dirtyFields },
   } = useFormContext<FormInput>();
   const { fullName, email, phoneNumber, salary } = getValues();
+  const isValid =
+    Object.keys(errors).length === 0 && Object.keys(dirtyFields).length == 4;
 
   return (
     <FormAnimationWrapper>
-      <IconTextInput icon={<NameSVG />} value={fullName} />
-      <IconTextInput icon={<EmailSVG />} value={email} />
-      <IconTextInput icon={<PhoneSVG />} value={phoneNumber} />
-      <IconTextInput icon={<EuroSVG />} value={salary} />
+      <IconTextInput icon={<NameSVG />} value={fullName ?? undefined} />
+      <IconTextInput icon={<EmailSVG />} value={email ?? undefined} />
+      <IconTextInput icon={<PhoneSVG />} value={phoneNumber ?? undefined} />
+      <IconTextInput icon={<EuroSVG />} value={salary ?? undefined} />
       {!isValid && (
         <div role="alert" className="alert alert-warning">
           <WarningSVG />
