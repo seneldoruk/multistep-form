@@ -9,8 +9,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 function App() {
-  const [step, setStep] = useState(1);
-  const [isSubmitted, setSubmitted] = useState(false);
+  const [step, setStep] = useState<number>(1);
   const formMethods = useForm<FormInput>({
     mode: "onTouched",
     resolver: zodResolver(FormSchema),
@@ -19,7 +18,7 @@ function App() {
   const { handleSubmit, watch } = formMethods;
   const onSubmit = handleSubmit((data) => {
     console.log(data);
-    setSubmitted(true);
+    setStep(4);
   });
   watch(["fullName", "email", "phoneNumber", "salary"]);
 
@@ -28,7 +27,7 @@ function App() {
       <div className="h-screen w-full flex items-center justify-center transition ease-in-out">
         <div className="card bg-neutral text-center items-center w-96">
           <div className="card-body items-center text-center">
-            {isSubmitted ? (
+            {step == 4 ? (
               <FormSubmitted />
             ) : (
               <>
